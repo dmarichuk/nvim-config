@@ -41,10 +41,19 @@ packer.init {
 -- Plugins
 return packer.startup(function(use)
     use "wbthomason/packer.nvim" -- Package manager itself
-
     use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
-
     use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
+    use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
+    use "numToStr/Comment.nvim" -- Easily comment stuff
+    use 'kyazdani42/nvim-web-devicons'
+    use 'kyazdani42/nvim-tree.lua'
+    use "akinsho/bufferline.nvim"
+    use "moll/vim-bbye" -- close buffer
+    use 'nvim-lualine/lualine.nvim'
+    use "akinsho/toggleterm.nvim"
+    use "ahmedkhalf/project.nvim"
+    use 'lewis6991/impatient.nvim' -- boost lua module loading speed
+    use 'goolord/alpha-nvim' -- startup theme
 
     -- Completion plugins
     use "hrsh7th/nvim-cmp" -- The completion plugin
@@ -62,13 +71,25 @@ return packer.startup(function(use)
     -- LSP
     use "neovim/nvim-lspconfig" -- enable LSP
     use "williamboman/nvim-lsp-installer" -- language server installer
+    use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
 
     --Telescope
     use "nvim-telescope/telescope.nvim"
     use 'nvim-telescope/telescope-media-files.nvim'
 
+    -- Treesitter
+    use {
+      "nvim-treesitter/nvim-treesitter",
+      run = ":TSUpdate",
+    }
+    use "p00f/nvim-ts-rainbow"
+    use 'JoosepAlviste/nvim-ts-context-commentstring'
+
     -- Colorscheme
     use 'shaunsingh/nord.nvim'
+
+    -- Git
+    use "lewis6991/gitsigns.nvim"
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
